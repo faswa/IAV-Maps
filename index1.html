@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<!--
+	Big Picture by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Big Picture by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <!-- Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<link rel="stylesheet" href="leaflet.css" />
+	<link rel="stylesheet" type="text/css" href="src/L.Control.ZoomBar.css"/>
+	<link rel="stylesheet" href="leaflet.draw.css" />
+	<link rel="stylesheet" href="libs/leaflet-measure-path.css" />
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="leaflet.js" ></script>
+	<script type="text/javascript" src="src/L.Control.ZoomBar.js"></script>
+	<script src="GEOJSON.js" ></script>
+	<script src="GeoJSON1.js" ></script>
+	<script src="leaflet.draw.js"></script>
+	<script src="libs/editable.js" ></script>
+	<script src="libs/measure.js"></script>
+	<script src="leaflet.MeasurePolygon.js"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #007acc;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #map-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        #map {
+            width: 80%;
+            height: 80%;
+            border: 2px solid #000;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1>IAV MAPS</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">Intro</a></li>
+                <li><a href="#one">Info</a></li>
+                <li><a href="#two">Histoire</a></li>
+                <li><a href="#work">Carte IAV</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Intro -->
+    <section id="intro" class="main style1 dark fullscreen">
+        <div class="content">
+            <header>
+                <h2>Bonjour</h2>
+            </header>
+            <p>Bienvenue dans mon site <strong>IAV MAPS</strong> qui présente l'institut IAV Hassan II</p>
+            <footer>
+                <a href="#one" class="button style2 down">More</a>
+            </footer>
+        </div>
+    </section>
+
+<!-- One -->
+<section id="one" class="main style2 right dark fullscreen">
+	<div class="content box style2">
+		<header>
+			<h2>Info IAV</h2>
+		</header>
+		<p>L’Institut agronomique et vétérinaire Hassan-II (en arabe : معهد الحسن الثاني للزراعة والبيطرة),
+			 est une école d'ingénieurs et de médecins vétérinaires marocaine située à Rabat et créée en 1966</p>
+	</div>
+	<a href="#two" class="button style2 down anchored">Next</a>
+</section>
+
+    <!-- Two -->
+    <section id="two" class="main style2 left dark fullscreen">
+        <div class "content box style2">
+            <header>
+                <h2>Histoire</h2>
+            </header>
+            <p><p>Crée en 1966 par Décret Royal et doté de la personnalité morale et de l’autonomie financière, l’Institut a démarré avec 12 étudiants et des cours assurés par des enseignants étrangers.<br><br>
+				Dès octobre 1969 les Autorités Gouvernementales ont manifesté le désir de voir la formation vétérinaire s’effectuer au Maroc et ont confié cette mission à l’Institut qui a pris l’appellation "Institut Agronomique et Vétérinaire Hassan II".<br><br>
+				L'Institut Agronomique et Vétérinaire Hassan II est passé, en 1966, de 12 étudiants suivant des cours assurés par des enseignants étrangers à son statut actuel de 2019 étudiants et 30 programmes de spécialisation dans deux campus, à savoir Rabat et Agadir. Les 220 enseignants-chercheur actuels sont à 98% des marocains impliqués dans 70 disciplines scientifiques différentes. Les étudiants étrangers (de 40 pays arabes, africains, sud américains,…) représentent 5 à 8% de les effectifs estudiantins (de 1972 à 1995) et sont en majorité boursiers du Gouvernement Marocains.</p>
+				</p>
+        </div>
+        <a href="#work" class="button style2 down anchored">Next</a>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="main style3 primary">
+        <div class="content">
+            <header>
+                <h2>Carte de l'IAV</h2>
+                <p>C'est une carte interactive de L'Institut agronomique et vétérinaire Hassan-II qui présente les différents batiments au sein de l'institut </p>
+            </header>
+
+            <!-- Embed the Leaflet map here -->
+            <div id="map-container">
+                <div id="map" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="main style3 secondary">
+        <div class="content">
+            <header>
+                <h2>Contactez-nous</h2>
+                <p>N'hésitez pas à contacter l'Institut Agronomique et Vétérinaire Hassan II à travers les informations fournis ci-dessous: </p>
+            </header>
+            <div class="box">
+                <div class="field">
+                    <h3>Adresse : Madinat Al Irfane, BP 6202
+                        Rabat, MAROC.</h3>
+                </div>
+                <div class="field">
+                    <h3>Numéro de téléphone: +212 5 377 717</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <!-- Footer -->
+        <footer id="footer">
+            <!-- Icons -->
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+            </ul>
+            
+        </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Leaflet JavaScript -->
+    <script>
+        const map = L.map('map').setView([33.979351, -6.864261], 10);
+
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        const measurePolygonControl = L.control.measurePolygon();
+        measurePolygonControl.addTo(map);
+     
+			var zoom_bar = new L.Control.ZoomBar({position: 'topright'}).addTo(map);
+			var tiles1 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+			}).addTo(map);
+	
+			function getCenterAndZoom(){
+					console.log("Lat: "+map.getCenter().lat);
+					console.log("Lon: "+map.getCenter().lng);
+					console.log("Zoom: "+map.getZoom());
+					alert("Lat: "+map.getCenter().lat+"\nLon: "+map.getCenter().lng+"\nZoom: "+map.getZoom());
+				}
+        const marker = L.marker([33.977645, -6.865181]).addTo(map)
+            .bindPopup("Bienvenue à l'IAV Hassan II").openPopup();
+
+    </script>
+    </script>
+	 <script src="IAVBati.js"></script>
+	 <script>
+		 var IAVBati = L.geoJSON(IAVBati).addTo(map);
+ 
+ 
+		 IAVBati.eachLayer(function (layer) {
+		 layer.bindPopup(layer.feature.properties.name);
+ });
+	 </script>
+ 
+ <script src="route.js"></script>
+ <script>
+	 var route = L.geoJSON(route, {
+		 style: function (feature) {
+			 return {
+				 color: 'black',
+				 weight: 1,
+			 };
+		 }
+	 }).addTo(map);
+ </script>
+ 
+ <script src="IAVcadre.js"></script>
+ <script>
+	 var IAVcadre = L.geoJSON(IAVcadre, {
+		 style: function (feature) {
+			 return {
+				 color: 'black',
+				 weight: 3,
+				 fill: false,
+			 };
+		 }
+	 }).addTo(map);
+ </script>
+ <script>
+	  measurePolygonControl = L.control.measurePolygon();
+ measurePolygonControl.addTo(map);
+ </script>
+
+</body>
+</html>
