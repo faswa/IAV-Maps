@@ -32,6 +32,9 @@
 	<script src="libs/measure.js"></script>
 	<script src="leaflet.MeasurePolygon.js"></script>
 
+	<link href='dist/leaflet.fullscreen.css' rel='stylesheet' />
+  	<script src='dist/Leaflet.fullscreen.min.js'></script>
+
 
     <style>
         body {
@@ -177,7 +180,11 @@
 
     <!-- Leaflet JavaScript -->
     <script>
-        const map = L.map('map').setView([33.979351, -6.864261], 10);
+        const map = L.map('map', {
+	  fullscreenControl: {
+		  pseudoFullscreen: false
+	  }
+	}).setView([33.979351, -6.864261], 10);
 
         const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
